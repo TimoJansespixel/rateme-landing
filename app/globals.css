@@ -992,7 +992,17 @@
   margin-bottom: 0 !important;           /* no extra gap above the title/text */
 }
 
-/* Removed desktop-only overrides to avoid changing desktop styles */
+/* Desktop: restore subtle shadow under top icon */
+@media (min-width: 769px) {
+  .hero-top-icon-wrap {
+    overflow: visible !important;
+  }
+  img.hero-top-icon {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.22) !important;
+    /* Improves visibility for rounded PNGs */
+    filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.18));
+  }
+}
 
 /* Mobile How It Works Section Styling */
 .mobile-optimized #how-rateme-works h2 {
