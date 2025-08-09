@@ -1,0 +1,1064 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lexend Font Face Declarations */
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-VariableFont_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-ExtraLight.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Medium.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-ExtraBold.ttf') format('truetype');
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/fonts/Lexend-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222.2 84% 4.9%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96%;
+    --accent-foreground: 222.2 84% 4.9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --radius: 0.5rem;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Lexend', sans-serif;
+    overflow-x: hidden; /* Added to prevent horizontal scrolling */
+  }
+}
+
+@layer utilities {
+  .animate-fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  .hover-lift {
+    transition: transform 0.2s ease-out;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-2px);
+  }
+
+  .animate-fly-in-right {
+    animation: flyInRight 1s ease-out forwards;
+    opacity: 0;
+    transform: translateX(100px);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes flyInRight {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .animation-delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Mobile-specific styles */
+.mobile-optimized {
+  /* Larger touch targets */
+  --touch-target-size: 44px;
+  
+  /* Better spacing for mobile */
+  --mobile-padding: 20px;
+  --mobile-margin: 16px;
+  
+  /* Mobile-optimized typography */
+  --mobile-text-size: 16px;
+  --mobile-heading-size: 24px;
+}
+
+/* Mobile-specific button styles */
+.mobile-optimized button {
+  min-height: 52px;
+  min-width: 52px;
+  padding: 16px 24px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.2;
+  margin-left: 0;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #5d18eb 0%, #7c3aed 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(93, 24, 235, 0.3);
+}
+
+.mobile-optimized button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(93, 24, 235, 0.4);
+}
+
+.mobile-optimized button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(93, 24, 235, 0.3);
+}
+
+.mobile-optimized button:active {
+  transform: translateY(0);
+}
+
+/* Mobile-specific input styles */
+.mobile-optimized input {
+  min-height: 52px;
+  font-size: 16px;
+  padding: 16px 20px;
+  border-radius: 12px;
+  border: 2px solid #e5e7eb;
+  background-color: white;
+  width: 100%;
+  max-width: 220px;
+  margin: 0;
+  display: inline-block;
+  flex: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+.mobile-optimized input:focus {
+  border-color: #5d18eb;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(93, 24, 235, 0.1), 0 4px 8px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.mobile-optimized input::placeholder {
+  color: #9ca3af;
+  font-size: 16px;
+}
+
+/* Mobile-specific card styles */
+.mobile-optimized .card,
+.mobile-optimized [class*="card"] {
+  padding: var(--mobile-padding);
+  margin: var(--mobile-margin) 0;
+  border-radius: 12px;
+}
+
+/* Mobile-specific text sizes */
+.mobile-optimized h1 {
+  font-size: 35px;
+  line-height: 1.2;
+}
+
+.mobile-optimized h2 {
+  font-size: 24px;
+  line-height: 1.3;
+}
+
+.mobile-optimized h3 {
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+.mobile-optimized p {
+  font-size: var(--mobile-text-size);
+  line-height: 1.5;
+}
+
+/* Mobile-specific spacing */
+.mobile-optimized .container {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.mobile-optimized section {
+  padding: 20px 0;
+}
+
+/* Mobile-specific icon sizes */
+.mobile-optimized .icon,
+.mobile-optimized svg {
+  width: 24px;
+  height: 24px;
+}
+
+/* Mobile-specific image sizes */
+.mobile-optimized img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Mobile-specific form styles */
+.mobile-optimized form {
+  margin: var(--mobile-margin) 0;
+}
+
+.mobile-optimized .form-group {
+  margin-bottom: var(--mobile-margin);
+}
+
+/* Mobile-specific navigation */
+.mobile-optimized .nav {
+  padding: var(--mobile-padding);
+}
+
+/* Mobile-specific footer */
+.mobile-optimized footer {
+  padding: var(--mobile-padding);
+  text-align: center;
+}
+
+/* Mobile-specific animations - DISABLE ALL */
+.mobile-optimized *,
+.mobile-optimized * *,
+.mobile-optimized * * * {
+  animation: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  animation-iteration-count: 1 !important;
+  transition: none !important;
+  transition-duration: 0s !important;
+}
+
+.mobile-optimized .animate-fade-in-up,
+.mobile-optimized .animate-fade-in,
+.mobile-optimized .animate-fly-in-right,
+.mobile-optimized [class*="animate-"],
+.mobile-optimized [class*="motion-"],
+.mobile-optimized [class*="transition"] {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+  animation-duration: 0s !important;
+  animation-delay: 0s !important;
+  transition: none !important;
+  transition-duration: 0s !important;
+}
+
+/* Mobile-specific hover effects */
+.mobile-optimized .hover\:scale-105:hover {
+  transform: scale(1.02);
+}
+
+/* Mobile-specific shadows */
+.mobile-optimized .shadow-lg {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile-specific gradients */
+.mobile-optimized .bg-gradient-to-b {
+  background: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+/* Mobile-specific responsive grid */
+.mobile-optimized .grid {
+  grid-template-columns: 1fr;
+  gap: var(--mobile-margin);
+}
+
+/* Mobile-specific flex layouts */
+.mobile-optimized .flex {
+  flex-direction: column;
+}
+
+.mobile-optimized .flex-row {
+  flex-direction: row;
+}
+
+/* Mobile-specific text alignment */
+.mobile-optimized .text-center {
+  text-align: center;
+}
+
+.mobile-optimized .text-left {
+  text-align: left;
+}
+
+/* Mobile-specific spacing utilities */
+.mobile-optimized .space-y-4 > * + * {
+  margin-top: 12px;
+}
+
+.mobile-optimized .space-y-6 > * + * {
+  margin-top: 16px;
+}
+
+.mobile-optimized .space-y-8 > * + * {
+  margin-top: 20px;
+}
+
+/* Mobile-specific border radius */
+.mobile-optimized .rounded-lg {
+  border-radius: 12px;
+}
+
+.mobile-optimized .rounded-xl {
+  border-radius: 16px;
+}
+
+/* Mobile-specific transitions */
+.mobile-optimized * {
+  transition-duration: 0.2s;
+}
+
+/* Mobile-specific focus states */
+.mobile-optimized button:focus,
+.mobile-optimized input:focus {
+  outline: 2px solid #5d18eb;
+  outline-offset: 2px;
+}
+
+/* Prevent horizontal scrolling on mobile */
+.mobile-optimized {
+  overflow-x: hidden !important;
+  max-width: 100vw !important;
+}
+
+.mobile-optimized * {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.mobile-optimized body {
+  overflow-x: hidden !important;
+}
+
+.mobile-optimized html {
+  overflow-x: hidden !important;
+}
+
+/* Mobile email form layout */
+.mobile-optimized form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 100%;
+  margin: 16px auto;
+  padding: 0 16px;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+/* Mobile email input container */
+.mobile-optimized .email-input-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  gap: 12px;
+}
+
+/* Hide email icon on mobile */
+.mobile-optimized .mail-icon,
+.mobile-optimized [class*="mail"],
+.mobile-optimized svg[data-lucide="mail"],
+.mobile-optimized .lucide-mail {
+  display: none !important;
+}
+
+/* Hide hero images and animations on mobile */
+.mobile-optimized img[src*="IMG_7463-landscape.png"] {
+  display: none !important;
+}
+
+.mobile-optimized .animate-fade-in-up,
+.mobile-optimized .animate-fade-in,
+.mobile-optimized .animate-fly-in-right {
+  animation: none !important;
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* Hide avatar images in hero section on mobile */
+.mobile-optimized .size-14 {
+  display: none !important;
+}
+
+/* Hide the "90+ people waiting" section on mobile */
+.mobile-optimized .animate-fade-in-up.animation-delay-800 {
+  display: none !important;
+}
+
+/* Hide original email form on mobile */
+.mobile-optimized form,
+.mobile-optimized .mx-auto.mt-2.max-w-md {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
+
+.mobile-optimized .email-input-container {
+  display: none !important;
+}
+
+/* Show mobile email form only on mobile */
+.mobile-optimized .mobile-email-form {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  position: static !important;
+  z-index: 999 !important;
+}
+
+/* Ensure children inside the mobile email form are visible */
+.mobile-optimized .mobile-email-form input,
+.mobile-optimized .mobile-email-form button {
+  display: inline-block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  width: auto;
+}
+
+/* Hide mobile email form on desktop */
+.mobile-email-form {
+  display: none !important;
+}
+
+/* Mobile email form (clean styles) */
+.mobile-optimized .mobile-email-form {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 12px auto 0px auto; /* tighter bottom spacing */
+  max-width: 360px;
+  padding: 0 8px; /* slightly tighter */
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.mobile-optimized .mobile-email-input {
+  flex: 1;
+  height: 44px;
+  padding: 10px 14px;
+  border-radius: 12px;
+  border: 1.5px solid #e5e7eb;
+  font-size: 16px;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+
+.mobile-optimized .mobile-email-input::placeholder {
+  color: #9ca3af;
+}
+
+.mobile-optimized .mobile-email-button {
+  height: 44px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  background: #5d18eb;
+  color: #fff;
+  border: 1px solid #4c14c7;
+  font-weight: 600;
+  box-shadow: 0 6px 14px rgba(93,24,235,0.25);
+}
+
+/* Keep the original hero form hidden on mobile */
+.mobile-optimized .mx-auto.mt-2.max-w-md {
+  display: none !important;
+}
+
+/* Mobile-specific app icon styles */
+.mobile-optimized img[src*="AppIconRateMe.png"] {
+  width: 14px !important;
+  height: 14px !important;
+}
+
+/* Mobile-specific hero app icon (bigger) */
+.mobile-optimized .hero-section img[src*="AppIconRateMe.png"],
+.mobile-optimized .hero img[src*="AppIconRateMe.png"],
+.mobile-optimized img[src*="AppIconRateMe.png"].h-20 {
+  width: 72px !important;
+  height: 72px !important;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Remove shadow for the hero top icon on mobile */
+.mobile-optimized .hero-section img[src*="AppIconRateMe.png"],
+.mobile-optimized .hero img[src*="AppIconRateMe.png"],
+.mobile-optimized img[src*="AppIconRateMe.png"].h-20 {
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Subtle shadow for the hero top icon on mobile */
+.mobile-optimized .hero-section img[src*="AppIconRateMe.png"],
+.mobile-optimized .hero img[src*="AppIconRateMe.png"],
+.mobile-optimized img[src*="AppIconRateMe.png"].h-20 {
+  filter: drop-shadow(0 4px 8px rgba(0,0,0,0.08));
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+}
+
+/* Mobile-specific text app icon (smaller, no shadow) */
+.mobile-optimized img[src*="AppIconRateMe.png"].w-5 {
+  width: 15px !important;
+  height: 15px !important;
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+/* Mobile-specific logo styles */
+.mobile-optimized img[src*="Logo RateMe.png"] {
+  width: 24px !important;
+  height: auto !important;
+}
+} 
+
+/* Extra shadow for the hero top icon on mobile (stronger rule) */
+.mobile-optimized .container .mx-auto.mb-6 img[src*="AppIconRateMe.png"] {
+  filter: drop-shadow(0 10px 20px rgba(0,0,0,0.18)) !important;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.16) !important;
+}
+
+/* Force preview image under waiting line to be visible */
+.mobile-optimized img.mobile-preview-image {
+  display: block !important;
+  opacity: 1 !important;
+} 
+
+/* Softer, subtle shadow for the hero top icon on mobile */
+.mobile-optimized .container .mx-auto.mb-6 img[src*="AppIconRateMe.png"] {
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.10)) !important;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.10) !important;
+} 
+
+/* Extremely subtle bottom-only shadow for hero top icon on mobile */
+.mobile-optimized img.hero-top-icon {
+  box-shadow: 0 3px 8px rgba(0,0,0,0.08) !important; /* slight bottom shadow */
+  filter: none !important;
+}
+
+/* Bottom-half-only shadow for hero top icon on mobile */
+.mobile-optimized .hero-top-icon-wrap {
+  position: relative;
+}
+/* Remove previous gradient pseudo-element */
+.mobile-optimized .hero-top-icon-wrap::after {
+  content: none !important;
+}
+/* Tiny, subtle shadow so the white icon is visible on white background */
+.mobile-optimized img.hero-top-icon {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08) !important;
+  filter: none !important;
+}
+
+/* Mobile preview image crop and mist overlay */
+.mobile-optimized .mobile-preview-wrap {
+  position: relative;
+  overflow: hidden;
+  height: 60vh; /* show a little more (was 50vh) */
+  max-height: 520px; /* slightly higher cap */
+}
+.mobile-optimized .mobile-preview-wrap .mobile-preview-image {
+  display: block;
+  width: 100%;
+  height: 100%; /* fill container height to crop */
+  object-fit: cover;
+  object-position: center top; /* focus top */
+}
+/* Overlay kept higher so bottom fades out smoothly */
+.mobile-optimized .mobile-preview-wrap::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 80%; /* higher overlay */
+  pointer-events: none;
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.95) 25%,
+    rgba(255, 255, 255, 0.7) 55%,
+    rgba(255, 255, 255, 0.0) 100%
+  );
+}
+
+/* Mobile problem boxes animations */
+.mobile-optimized .problems-section {
+  overflow: visible !important; /* allow normal scrolling */
+  padding-top: 0 !important; /* bring title higher */
+  min-height: 600px !important; /* make section much bigger */
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+/* Ensure Problems section header is visible and sized well on mobile */
+.mobile-optimized .problems-section h2 {
+  font-size: 1.75rem !important; /* 28px */
+  line-height: 2.1rem !important;
+  text-align: center !important;
+}
+
+.mobile-optimized .problems-section p.text-xl {
+  font-size: 1.125rem !important; /* match other subtitles */
+  line-height: 1.75rem !important;
+  text-align: center !important;
+}
+
+/* Ensure title sits clearly above cards */
+.mobile-optimized .problems-section .text-center.mb-4 {
+  margin-bottom: 8px !important; /* tighter gap */
+  position: relative;
+  z-index: 2;
+  margin-top: 2rem !important; /* push title to top */
+}
+
+/* Mobile: card container spacing */
+.mobile-optimized .problem-cards {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  height: 320px !important; /* fixed pile viewport height without inner scroll */
+  margin-top: auto !important; /* push cards to bottom of section */
+  position: relative;
+  z-index: 1;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: visible !important; /* allow scrolling through cards */
+}
+
+/* Restore pile stacking on mobile (keep hidden overflow) */
+/* No overrides needed now that container manages layout */
+
+/* Mobile: make XCard more compact and readable */
+.mobile-optimized .problems-section .w-full.max-w-xl.p-1\.5.rounded-2xl.relative.isolate.overflow-hidden {
+  max-width: 320px !important; /* hard limit on width */
+  width: 90% !important;
+  transform: scale(0.85); /* shrink the whole card */
+  transform-origin: top center;
+}
+
+/* Hide nav arrows on small screens to reduce clutter */
+.mobile-optimized .problems-section button.absolute {
+  display: none !important;
+}
+
+.mobile-optimized .problems-section .w-full.p-5.rounded-xl.relative {
+  padding: 12px !important; /* tighter padding on mobile */
+}
+
+.mobile-optimized .problems-section .x-card-content p {
+  font-size: 0.875rem !important; /* 14px - smaller text */
+  line-height: 1.25rem !important; /* 20px */
+}
+
+/* Show icons on mobile only; hide on desktop (global) */
+.mobile-optimized .mobile-only-icon {
+  display: inline-block !important;
+}
+.mobile-only-icon {
+  display: none !important;
+}
+
+/* Hide Read more button and collapsed state on desktop (global) */
+.x-card-content .read-more-btn {
+  display: none !important;
+}
+.x-card-content .max-h-20 {
+  max-height: none !important;
+  overflow: visible !important;
+}
+
+/* Re-enable Read more button and collapse behavior on mobile (global) */
+.mobile-optimized .x-card-content .read-more-btn {
+  display: inline-flex !important;
+}
+.mobile-optimized .x-card-content .max-h-20 {
+  max-height: 5rem !important; /* 80px */
+  overflow: hidden !important;
+}
+
+/* Keyframes for sliding in from left */
+@keyframes slideInFromLeft {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Keyframes for sliding in from right */
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Apply animations to problem boxes on mobile */
+.mobile-optimized .problem-box-left,
+.mobile-optimized .problem-box-right {
+  opacity: 0; /* hidden until observed */
+}
+
+.mobile-optimized .problem-box-left.in-view,
+.mobile-optimized .problem-box-right.in-view {
+  opacity: 1;
+}
+
+/* Animate an inner wrapper so inline styles on the outer element don't conflict */
+.mobile-optimized .problem-box-left.in-view .animated-inner {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.mobile-optimized .problem-box-right.in-view .animated-inner {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+/* Stagger animations for sequential appearance */
+.mobile-optimized .problem-box-left:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.mobile-optimized .problem-box-right:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.mobile-optimized .problem-box-left:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+/* Text alignment for content inside the boxes */
+.mobile-optimized .problem-box-left .x-card-content {
+  text-align: left !important;
+}
+
+.mobile-optimized .problem-box-right .x-card-content {
+  text-align: right !important;
+} 
+
+/* Combined hero info box slides in from the left */
+.hero-info-combined {
+  opacity: 1; /* visible by default */
+  transform: translateX(0); /* no initial offset */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hero-info-combined.in-view {
+  opacity: 1;
+  transform: translateX(0);
+  animation: slideInFromLeft 0.6s ease-out forwards;
+}
+
+/* Mobile: feature/hero info boxes slide-in on scroll */
+.mobile-optimized .features-section {
+  overflow-x: hidden; /* prevent horizontal scroll during slide-in */
+}
+
+.mobile-optimized .features-section .hero-info-box {
+  opacity: 1; /* no animation */
+  will-change: auto;
+  transition: none;
+  background: transparent !important; /* remove box look */
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  padding: 0 !important;
+}
+
+.mobile-optimized .features-section .hero-info-box.in-view {
+  opacity: 1; /* ensure always visible */
+}
+
+/* Mobile: show text inside feature items */
+.mobile-optimized .features-section .hero-info-box h3,
+.mobile-optimized .features-section .hero-info-box p {
+  display: block !important;
+}
+
+/* Mobile: make feature titles more bold */
+.mobile-optimized .features-section .hero-info-box h3 {
+  font-weight: 800 !important; /* extra-bold */
+}
+
+.mobile-optimized .hero-info-box.left {
+  text-align: left;
+}
+
+.mobile-optimized .hero-info-box.right {
+  text-align: right;
+}
+
+.mobile-optimized .hero-info-box.left.in-view {
+  animation: slideInFromLeft 0.7s ease-out forwards;
+}
+
+.mobile-optimized .hero-info-box.right.in-view {
+  animation: slideInFromRight 0.7s ease-out forwards;
+}
+
+/* Ensure inner text aligns with side on mobile */
+.mobile-optimized .hero-info-box.left .hero-box-text {
+  text-align: left !important;
+}
+
+.mobile-optimized .hero-info-box.right .hero-box-text {
+  text-align: right !important;
+}
+
+/* Mobile: add consistent horizontal margins to feature/hero info boxes */
+.mobile-optimized .hero-info-box {
+  margin-left: 16px !important;
+  margin-right: 16px !important;
+  height: auto !important;               /* allow different heights per content */
+  padding-top: 16px !important;          /* ensure equal vertical padding */
+  padding-bottom: 16px !important;       /* ensure equal vertical padding */
+}
+
+/* Slide direction based on alignment */
+.mobile-optimized .features-section .hero-info-box.left.in-view {
+  animation: slideInFromLeft 0.8s ease-out forwards;
+}
+
+.mobile-optimized .features-section .hero-info-box.right.in-view {
+  animation: slideInFromRight 0.8s ease-out forwards;
+}
+
+/* Remove extra spacing above text inside boxes on mobile */
+.mobile-optimized .hero-info-box .text-foreground {
+  margin-bottom: 0 !important;           /* no extra gap above the title/text */
+}
+
+/* Removed desktop-only overrides to avoid changing desktop styles */
+
+/* Mobile How It Works Section Styling */
+.mobile-optimized #how-rateme-works h2 {
+  font-size: 2rem !important; /* Slightly smaller title */
+  line-height: 1.1 !important;
+  text-align: center !important;
+}
+
+.mobile-optimized #how-rateme-works .text-xl {
+  font-size: 1.125rem !important; /* Same as hero subtitle lg:text-lg */
+  line-height: 1.75rem !important;
+  text-align: center !important;
+}
+
+/* Stack steps vertically on mobile */
+.mobile-optimized .group\/stepper-nav {
+  flex-direction: column !important;
+  gap: 1.5rem !important;
+}
+
+.mobile-optimized .group\/step {
+  width: 100% !important;
+  justify-content: center !important; /* Center the steps */
+  text-align: center !important;
+}
+
+.mobile-optimized .group\/step .flex.flex-col {
+  text-align: center !important;
+  align-items: center !important;
+}
+
+/* Hide connecting lines on mobile */
+.mobile-optimized .group\/step .bg-muted {
+  display: none !important;
+}
+
+/* Hide RateMe heart icon in How it Works section on mobile */
+.mobile-optimized #how-rateme-works h2 img[src*="AppIconRateMe.png"] {
+  display: none !important;
+}
+
+/* Make "RateMe" use same bold as the rest of the title on mobile */
+.mobile-optimized #how-rateme-works h2 span.text-black.font-black {
+  font-weight: 700 !important; /* match bold weight */
+}
+
+/* Increase step typography on mobile */
+/* Step title */
+.mobile-optimized #how-rateme-works .group\/step h3 {
+  font-size: 1.25rem !important; /* 20px - a bit bigger */
+  line-height: 1.5rem !important;  /* 24px */
+  font-weight: 600 !important;     /* semibold for clarity */
+}
+
+/* Step description -> match section subtitle size (hero lg:text-lg ~ 18px) */
+.mobile-optimized #how-rateme-works .group\/step .text-muted-foreground,
+.mobile-optimized #how-rateme-works .group\/step .text-sm {
+  font-size: 1.125rem !important; /* 18px */
+  line-height: 1.75rem !important; /* 28px */
+  padding-left: 16px !important;   /* more side padding */
+  padding-right: 16px !important;  /* more side padding */
+}
+
+/* Make step number circles bigger on mobile */
+.mobile-optimized #how-rateme-works .group\/step .size-6 {
+  width: 2rem !important;   /* 32px */
+  height: 2rem !important;  /* 32px */
+  font-size: 1rem !important; /* 16px number */
+}
