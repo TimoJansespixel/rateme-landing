@@ -198,8 +198,8 @@ const Hero7 = ({
                 typingDisabled={false}
               />
             )}
-            <p className="text-balance text-muted-foreground lg:text-lg animate-fade-in-up animation-delay-200 font-lexend">
-              <img src="/assets/images/AppIconRateMe.png" alt="RateMe" className="inline w-5 h-5 -mt-1 -mr-0.5" /><span className="text-black font-black">RateMe</span> is the only app that reveals your true attractiveness score—voted by real people through head-to-head photo duels
+            <p className="text-balance text-muted-foreground lg:text-lg animate-fade-in-up animation-delay-200 font-lexend hero-subtitle">
+              <span className="rateme-inline"><img src="/assets/images/AppIconRateMe.png" alt="RateMe" className="inline w-5 h-5 -mt-1 -mr-0.5" /><span className="text-black font-black">RateMe</span></span> is the only app that reveals your true attractiveness score—voted by real people through head-to-head photo duels
             </p>
             
             {/* Animated Shiny Text Component (desktop only) */}

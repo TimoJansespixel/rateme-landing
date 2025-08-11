@@ -7,7 +7,7 @@ const faqData = [
   {
     id: 1,
     question: "How does RateMe work?",
-    answer: "<img src=\"/assets/images/AppIconRateMe.png\" alt=\"RateMe\" class=\"inline w-4 h-4 -mt-1 -mr-0.5\" /><span class=\"text-black font-black\">RateMe</span> connects you with real people who provide honest ratings of your photos. Upload your best pictures, get rated by genuine users, and see where you stand in your league.",
+    answer: "RateMe connects you with real people who provide honest ratings of your photos. Upload your best pictures, get rated by genuine users, and see where you stand in your league.",
     icon: "📱",
     iconPosition: "right" as const,
   },
@@ -84,7 +84,7 @@ const faqData = [
   {
     id: 12,
     question: "Is RateMe available worldwide?",
-    answer: "<img src=\"/assets/images/AppIconRateMe.png\" alt=\"RateMe\" class=\"inline w-4 h-4 -mt-1 -mr-0.5\" /><span class=\"text-black font-black\">RateMe</span> will be available worldwide on the App Store and Play Store.",
+    answer: "RateMe will be available worldwide on the App Store and Play Store.",
     icon: "🌍",
     iconPosition: "left" as const,
   },
@@ -92,7 +92,7 @@ const faqData = [
 
 export function FaqSection() {
   return (
-    <section className="py-24 bg-gradient-to-b from-background to-muted/10">
+    <section className="faq-section py-24 bg-gradient-to-b from-background to-muted/10">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16">
@@ -100,7 +100,7 @@ export function FaqSection() {
             Frequently Asked Questions
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Everything you need to know about <img src="/assets/images/AppIconRateMe.png" alt="RateMe" className="inline w-5 h-5 -mt-1 -mr-0.5" /><span className="text-black font-black">RateMe</span> and how it works
+            Everything you need to know about <span className="rateme-inline"><img src="/assets/images/AppIconRateMe.png" alt="RateMe" className="inline w-5 h-5 -mt-1 -mr-0.5" /><span className="text-black font-black">RateMe</span></span> and how it works
           </p>
         </div>
 
@@ -108,10 +108,12 @@ export function FaqSection() {
         <div className="flex justify-center">
           <div className="relative w-full max-w-4xl">
             {/* FAQ Accordion */}
-            <div className="w-1/2">
+            <div className="w-1/2 mobile-faq">
               <FaqAccordion 
                 data={faqData}
                 className="w-full"
+                questionClassName="faq-desktop-question"
+                answerClassName="faq-desktop-answer"
                 timestamp="Updated daily"
               />
             </div>
@@ -128,6 +130,8 @@ export function FaqSection() {
             </div>
           </div>
         </div>
+
+
       </div>
     </section>
   );

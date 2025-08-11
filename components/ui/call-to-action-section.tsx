@@ -1,5 +1,5 @@
 "use client";
-import { TypewriterEffectSmooth } from "@/components/ui/typewriter-effect";
+import { TypewriterEffectSmooth, TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight } from "lucide-react";
 import { useState } from "react";
@@ -68,7 +68,7 @@ export function CallToActionSection() {
 
   return (
     <>
-      <section className="py-24 bg-gradient-to-b from-white to-gray-50">
+      <section className="call-to-action-section py-24 bg-gradient-to-b from-white to-gray-50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center text-center">
             <p className="text-neutral-600 dark:text-neutral-200 text-sm sm:text-base mb-8">
@@ -76,14 +76,28 @@ export function CallToActionSection() {
             </p>
             
             <div className="mb-12">
-              <TypewriterEffectSmooth 
-                words={words} 
-                className="text-center"
-                cursorClassName="bg-[#5d18eb]"
-              />
+              <div className="cta-typewriter">
+                {/* Desktop/Large screens: smooth typewriter */}
+                <div className="cta-typewriter--smooth">
+                  <TypewriterEffectSmooth 
+                    words={words} 
+                    className="text-center"
+                    cursorClassName="bg-[#5d18eb] cta-cursor"
+                  />
+                </div>
+                {/* Mobile: classic typewriter that supports wrapping */}
+                <div className="cta-typewriter--classic">
+                  <TypewriterEffect 
+                    words={words} 
+                    className="text-center"
+                    cursorClassName="bg-[#5d18eb] cta-cursor"
+                  />
+                </div>
+              </div>
             </div>
 
-            <div className="mx-auto max-w-md animate-fade-in-up animation-delay-400">
+            {/* Desktop Email Form */}
+            <div className="mx-auto max-w-md animate-fade-in-up animation-delay-400 hidden md:block">
               <form onSubmit={handleSubmit} className="relative">
                 <div className="flex items-center gap-2 rounded-xl border bg-background/50 backdrop-blur-sm p-2 shadow-lg transition-all duration-300 hover:shadow-xl">
                   <div className="flex items-center gap-2 flex-1 px-3">
@@ -125,16 +139,37 @@ export function CallToActionSection() {
                 </p>
               )}
             </div>
+
+            {/* Mobile Email Form */}
+            <div className="mobile-email-form md:hidden">
+              <form onSubmit={handleSubmit} className="w-full flex items-center gap-2">
+                <input
+                  type="email"
+                  placeholder="Enter your email..."
+                  className="mobile-email-input flex-1"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <button 
+                  type="submit" 
+                  className="mobile-email-button"
+                  disabled={isLoading || !email}
+                >
+                  {isLoading ? '...' : 'Join'}
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </section>
 
       {/* RateMe Logo */}
-      <div className="pt-2 pb-8 flex justify-center bg-gradient-to-b from-gray-50 to-white">
+      <div className="pt-2 pb-8 flex justify-center bg-gradient-to-b from-gray-50 to-white cta-rateme-logo">
         <img 
           src="/assets/images/Logo RateMe.png" 
           alt="RateMe Logo" 
-          className="h-10 w-auto object-contain"
+          className="h-10 w-auto object-contain cta-rateme-logo__img"
         />
       </div>
     </>

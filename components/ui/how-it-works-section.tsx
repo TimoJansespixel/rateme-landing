@@ -37,7 +37,7 @@ export function HowItWorksSection() {
         {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold tracking-tight mb-4">
-            How <img src="/assets/images/AppIconRateMe.png" alt="RateMe" className="inline w-9 h-9 -mt-2 -mr-0.5" /><span className="text-black font-black">RateMe</span> Works
+            How RateMe Works
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
             Get started in just 4 simple steps and discover your true rating

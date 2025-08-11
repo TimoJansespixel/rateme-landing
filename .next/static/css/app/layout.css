@@ -678,9 +678,6 @@ video {
 .-ml-6 {
   margin-left: -1.5rem;
 }
-.-mr-0 {
-  margin-right: -0px;
-}
 .-mr-0\.5 {
   margin-right: -0.125rem;
 }
@@ -789,14 +786,14 @@ video {
 .h-14 {
   height: 3.5rem;
 }
+.h-16 {
+  height: 4rem;
+}
 .h-20 {
   height: 5rem;
 }
 .h-3 {
   height: 0.75rem;
-}
-.h-32 {
-  height: 8rem;
 }
 .h-4 {
   height: 1rem;
@@ -846,14 +843,14 @@ video {
 .w-14 {
   width: 3.5rem;
 }
+.w-16 {
+  width: 4rem;
+}
 .w-2\/5 {
   width: 40%;
 }
 .w-3 {
   width: 0.75rem;
-}
-.w-32 {
-  width: 8rem;
 }
 .w-4 {
   width: 1rem;
@@ -872,9 +869,6 @@ video {
 }
 .w-80 {
   width: 20rem;
-}
-.w-9 {
-  width: 2.25rem;
 }
 .w-\[4px\] {
   width: 4px;
@@ -1717,8 +1711,8 @@ video {
     animation-delay: 600ms;
   }
 .animation-delay-800 {
-  animation-delay: 800ms;
-}
+    animation-delay: 800ms;
+  }
 /* Mobile-specific styles */
 .mobile-optimized {
   /* Larger touch targets */
@@ -1995,8 +1989,7 @@ video {
 .mobile-optimized .animate-fade-in-up.animation-delay-800 {
   display: none !important;
 }
-/* Hide original email form on mobile */
-.mobile-optimized form,
+/* Hide original email form on mobile - be more specific to avoid hiding mobile forms */
 .mobile-optimized .mx-auto.mt-2.max-w-md {
   display: none !important;
   visibility: hidden !important;
@@ -2041,6 +2034,14 @@ video {
   position: relative;
   z-index: 1;
 }
+/* Ensure the form inside stays horizontal */
+.mobile-optimized .mobile-email-form form {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px !important;
+  width: 100% !important;
+}
 .mobile-optimized .mobile-email-input {
   flex: 1;
   height: 44px;
@@ -2067,9 +2068,21 @@ video {
   font-weight: 600;
   box-shadow: 0 6px 14px rgba(93,24,235,0.25);
 }
-/* Keep the original hero form hidden on mobile */
-.mobile-optimized .mx-auto.mt-2.max-w-md {
-  display: none !important;
+/* Ensure main email form stays horizontal on mobile only */
+.mobile-optimized .mx-auto.mt-2.max-w-md form .flex.items-center.gap-2 {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex-wrap: nowrap !important;
+}
+/* Ensure email input and button stay side by side (mobile only) */
+.mobile-optimized .mx-auto.mt-2.max-w-md form .flex.items-center.gap-2 > * {
+  flex-shrink: 0 !important;
+}
+.mobile-optimized .mx-auto.mt-2.max-w-md form .flex.items-center.gap-2 .flex-1 {
+  flex: 1 !important;
+  min-width: 0 !important;
 }
 /* Mobile-specific app icon styles */
 .mobile-optimized img[src*="AppIconRateMe.png"] {
@@ -2546,7 +2559,17 @@ video {
   margin-bottom: 0 !important;           /* no extra gap above the title/text */
 }
 
-/* Removed desktop-only overrides to avoid changing desktop styles */
+/* Desktop: restore subtle shadow under top icon */
+@media (min-width: 769px) {
+  .hero-top-icon-wrap {
+    overflow: visible !important;
+  }
+  img.hero-top-icon {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12) !important;
+    /* remove extra drop-shadow for a minimal look */
+    filter: none !important;
+  }
+}
 
 /* Mobile How It Works Section Styling */
 .mobile-optimized #how-rateme-works h2 {
@@ -2615,6 +2638,683 @@ video {
   width: 2rem !important;   /* 32px */
   height: 2rem !important;  /* 32px */
   font-size: 1rem !important; /* 16px number */
+}
+
+/* FAQ Section - Force desktop layout on mobile only */
+.mobile-optimized .faq-section {
+  padding: 6rem 0 !important; /* py-24 */
+}
+
+.mobile-optimized .faq-section .container {
+  margin: 0 auto !important;
+  padding: 0 1rem !important;
+}
+
+.mobile-optimized .faq-section h2 {
+  font-size: 2.25rem !important; /* text-4xl */
+  font-weight: 700 !important; /* font-bold */
+  letter-spacing: -0.025em !important; /* tracking-tight */
+  margin-bottom: 1rem !important; /* mb-4 */
+  text-align: center !important;
+}
+
+.mobile-optimized .faq-section p {
+  font-size: 1.25rem !important; /* text-xl */
+  color: #6b7280 !important; /* text-muted-foreground */
+  max-width: 42rem !important; /* max-w-2xl */
+  margin: 0 auto !important; /* mx-auto */
+  text-align: center !important;
+}
+
+.mobile-optimized .faq-section .flex {
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.mobile-optimized .faq-section .relative {
+  position: relative !important;
+  width: 100% !important;
+  max-width: 56rem !important; /* max-w-4xl */
+}
+
+.mobile-optimized .faq-section .w-1\/2 {
+  width: 50% !important;
+}
+
+.mobile-optimized .faq-section .absolute {
+  position: absolute !important;
+  left: 55% !important;
+  top: 0 !important;
+  width: 40% !important; /* w-2/5 */
+  display: flex !important;
+  justify-content: flex-start !important;
+  padding-left: 1rem !important; /* pl-4 */
+}
+
+.mobile-optimized .faq-section .w-80 {
+  width: 20rem !important;
+  height: auto !important;
+  -o-object-fit: contain !important;
+     object-fit: contain !important;
+  filter: drop-shadow(0 25px 25px rgb(0 0 0 / 0.15)) !important; /* drop-shadow-2xl */
+}
+
+.mobile-optimized .faq-section .animate-fly-in-right {
+  animation: flyInRight 0.6s ease-out !important;
+}
+
+@keyframes flyInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Removed overly broad FAQ mobile overrides that forced grey backgrounds */
+
+/* Mobile-only: hide everything except title */
+.mobile-optimized .faq-section {
+  background: #ffffff !important; /* section bg white */
+  background-color: #ffffff !important;
+}
+.mobile-optimized .faq-section .bg-gradient-to-b {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+/* Remove the wildcard rule that was making all FAQ elements transparent */
+.mobile-optimized .faq-section,
+.mobile-optimized .faq-section .from-background,
+.mobile-optimized .faq-section .to-muted\/10,
+.mobile-optimized .faq-section.py-24.bg-gradient-to-b.from-background.to-muted\/10 {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+.mobile-optimized .faq-section .from-background {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+.mobile-optimized .faq-section .to-muted\/10 {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+}
+/* Force white background on the section element itself */
+.mobile-optimized .faq-section.py-24.bg-gradient-to-b.from-background.to-muted\/10 {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+.mobile-optimized .faq-section .absolute {
+  display: none !important; /* hide phone image */
+}
+.mobile-optimized .faq-section .w-1\/2,
+.mobile-optimized .faq-section .mobile-faq {
+  width: 100% !important; /* make FAQ accordion full width */
+}
+/* Show FAQ accordion content on mobile */
+.mobile-optimized .faq-section .p-4 {
+  display: block !important; /* show the accordion content on mobile */
+}
+
+/* Ensure the main FAQ accordion is visible on mobile */
+.mobile-optimized .faq-section .w-1\/2,
+.mobile-optimized .faq-section .mobile-faq {
+  width: 100% !important; /* make FAQ accordion full width on mobile */
+  margin-bottom: 2rem !important;
+}
+
+
+/* Remove problematic CSS that was interfering with FAQ accordion styling */
+
+/* ===== MOBILE FAQ SECTION - COMPLETELY ISOLATED STYLES ===== */
+/* These styles are completely separate and won't interfere with existing CSS */
+
+/* Mobile FAQ Section - Fresh Start */
+.mobile-optimized .faq-section {
+  background: #ffffff !important;
+  background-color: #ffffff !important;
+  background-image: none !important;
+}
+
+/* Mobile FAQ Container */
+.mobile-optimized .faq-section .container {
+  padding: 0 1rem !important;
+}
+
+/* Mobile FAQ Title */
+.mobile-optimized .faq-section h2 {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  text-align: center !important;
+  margin-bottom: 1rem !important;
+  color: #000000 !important;
+}
+
+/* Mobile FAQ Subtitle */
+.mobile-optimized .faq-section p {
+  font-size: 1.125rem !important;
+  text-align: center !important;
+  margin-bottom: 2rem !important;
+  color: #6b7280 !important;
+}
+
+/* Override utility classes that center content in this section */
+.mobile-optimized .faq-section .text-center { text-align: center !important; }
+.mobile-optimized .faq-section .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+
+/* Mobile FAQ Content Layout */
+.mobile-optimized .faq-section .flex {
+  flex-direction: column !important;
+  align-items: flex-start !important; /* force left alignment */
+  justify-content: flex-start !important;
+}
+
+/* Ensure proper spacing and layout for mobile FAQ */
+.mobile-optimized .faq-section .justify-center {
+  justify-content: center !important;
+}
+
+.mobile-optimized .faq-section .w-full.max-w-4xl {
+  max-width: 100% !important;
+  padding: 0 1rem !important;
+}
+
+/* Mobile FAQ Accordion Container */
+.mobile-optimized .faq-section .w-1\/2 {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Mobile FAQ Accordion - Fresh Styling */
+.mobile-optimized .faq-section .p-4 {
+  padding: 1rem !important;
+  background: transparent !important;
+}
+
+/* Remove spacing between accordion items */
+.mobile-optimized .faq-section .mb-2 {
+  margin-bottom: 0 !important;
+}
+
+/* Target accordion items directly to remove spacing */
+.mobile-optimized .faq-section .AccordionItem {
+  margin-bottom: 0 !important;
+}
+
+.mobile-optimized .faq-section [data-radix-accordion-item] {
+  margin-bottom: 0 !important;
+}
+
+/* Target the specific accordion item class from the component */
+.mobile-optimized .faq-section .mb-2 {
+  margin-bottom: 0 !important;
+}
+
+/* Force remove all margins between FAQ items */
+.mobile-optimized .faq-section .faq-chat-accordion > div > div {
+  margin-bottom: 0 !important;
+}
+
+/* Ensure FAQ accordion is visible and properly styled */
+.mobile-optimized .faq-section .faq-chat-accordion {
+  width: 100% !important;
+  max-width: 100% !important;
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Set purple background for FAQ answer boxes only (both mobile and desktop) */
+.mobile-faq .rounded-2xl.bg-primary,
+.mobile-faq [data-radix-accordion-content],
+.mobile-faq .AccordionContent { 
+  background: #5d18eb !important; 
+  background-color: #5d18eb !important; 
+  color: white !important;
+}
+.mobile-optimized .mobile-faq .text-primary-foreground,
+.mobile-optimized .mobile-faq .text-primary { 
+  color: #111827 !important; 
+}
+
+/* ===== Isolated styles scoped to `.mobile-faq` only (no global interference) ===== */
+
+/* Remove container padding and width restrictions on mobile */
+.mobile-optimized .faq-section .container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  max-width: none !important;
+}
+
+.mobile-optimized .faq-section .w-1\/2 {
+  width: 100% !important;
+}
+
+.mobile-optimized .faq-section .mobile-faq {
+  padding-left: 8px !important;
+  padding-right: 8px !important;
+}
+
+/* Remove padding from FAQ accordion wrapper */
+.mobile-optimized .mobile-faq .p-4 {
+  padding: 0 !important;
+}
+
+/* Remove padding from accordion trigger and other wrappers */
+.mobile-optimized .mobile-faq .flex.w-full.items-center.justify-start.gap-x-4 {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Remove any default padding from accordion items */
+.mobile-optimized .mobile-faq [data-radix-accordion-item],
+.mobile-optimized .mobile-faq [data-radix-accordion-header],
+.mobile-optimized .mobile-faq [data-radix-accordion-trigger] {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Reduce space between "Updated daily" and FAQ boxes */
+.mobile-optimized .mobile-faq .text-sm.text-muted-foreground,
+.mobile-optimized .mobile-faq .mb-4.text-sm.text-muted-foreground {
+  white-space: nowrap !important;
+  margin-left: 16px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Reduce margin under FAQ section subtitle */
+.mobile-optimized .faq-section .text-center.mb-16 {
+  margin-bottom: 8px !important;
+}
+
+/* Questions: boxes with shadow, positioned left */
+.mobile-optimized .mobile-faq .relative.flex.items-center.space-x-2.rounded-xl.p-2.transition-colors {
+  background: #f9fafb !important;
+  border: 1px solid #e5e7eb !important;
+  margin-bottom: 0 !important; /* clean, no negative margins */
+  margin-left: -8px !important; /* reduce left margin */
+  padding: 12px 6px !important; /* reduce right padding even more */
+  border-radius: 12px !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
+  position: relative !important;
+  display: inline-flex !important; /* shrink to content */
+  width: -moz-max-content !important;
+  width: max-content !important; /* grow with entire text on one line */
+  flex: none !important; /* do not grow to fill line */
+  /* Max width = full width minus icon(48) minus gap(16) */
+  max-width: calc(100% - 60px) !important;
+  box-sizing: border-box !important;
+}
+
+/* Allow question text to wrap within the box */
+.mobile-optimized .mobile-faq .relative.flex.items-center.space-x-2.rounded-xl.p-2.transition-colors .font-medium {
+  white-space: normal !important; /* allow text to wrap */
+  overflow-wrap: break-word !important;
+  word-break: break-word !important;
+  line-height: 1.4 !important;
+}
+
+.mobile-optimized .mobile-faq .relative.flex.items-center.space-x-2.rounded-xl.p-2.transition-colors:hover {
+  background: transparent !important;
+}
+
+/* Active/open question should still be neutral, not purple */
+.mobile-optimized .mobile-faq .bg-primary\/20 {
+  background: #e5e7eb !important;
+  color: #111827 !important;
+}
+
+/* Remove all backgrounds and boxes */
+.mobile-optimized .mobile-faq * {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  filter: none !important;
+}
+
+/* Ensure plus/minus icons are always visible */
+.mobile-optimized .mobile-faq .h-5.w-5,
+.mobile-optimized .mobile-faq svg,
+.mobile-optimized .mobile-faq .text-muted-foreground svg,
+
+/* Keep "Updated daily" on one line on mobile */
+.mobile-optimized .mobile-faq .text-sm.text-muted-foreground {
+  white-space: nowrap !important;
+  margin-left: 16px !important;
+}
+.mobile-optimized .mobile-faq .text-muted-foreground.text-primary svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  color: #111827 !important; /* black */
+}
+
+/* Make plus/minus icons the same size with desktop grey color */
+.mobile-optimized .mobile-faq .h-5.w-5 {
+  width: 20px !important;
+  height: 20px !important;
+  color: #6b7280 !important; /* Same grey as desktop */
+}
+
+/* Target the icon container when open (has text-primary class) */
+.mobile-optimized .mobile-faq span.text-primary {
+  min-width: 48px !important;
+  width: 48px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  color: #6b7280 !important; /* Same grey as desktop */
+}
+
+/* Make the icon container full width to properly display the icon */
+.mobile-optimized .mobile-faq .text-muted-foreground {
+  min-width: 48px !important; /* give plus icon container full width */
+  width: 48px !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  color: #6b7280 !important; /* Same grey as desktop */
+}
+
+
+
+/* Remove all vertical gaps between FAQ items */
+.mobile-optimized .mobile-faq .mb-2,
+.mobile-optimized .mobile-faq [data-radix-accordion-item],
+.mobile-optimized .mobile-faq [data-radix-accordion-header],
+.mobile-optimized .mobile-faq [data-radix-accordion-trigger] {
+  margin: 0 !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Neutralize Tailwind space-y utilities if present inside the accordion wrapper */
+.mobile-optimized .mobile-faq .p-4 > :not([hidden]) ~ :not([hidden]) {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* Force left alignment for all accordion content */
+.mobile-optimized .mobile-faq .p-4 {
+  text-align: left !important;
+  margin-left: 0 !important;
+  padding-left: 0 !important;
+}
+
+/* Override any conditional icon hiding */
+.mobile-optimized .mobile-faq .text-muted-foreground,
+.mobile-optimized .mobile-faq .text-muted-foreground.text-primary,
+.mobile-optimized .mobile-faq .text-muted-foreground.text-primary svg,
+.mobile-optimized .mobile-faq .text-muted-foreground svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+}
+
+.mobile-optimized .mobile-faq .flex.w-full.items-center.justify-start.gap-x-4 {
+  justify-content: flex-start !important;
+  align-items: center !important;
+  text-align: left !important;
+  flex-direction: row !important;
+  gap: 0.25rem !important;
+}
+
+/* New list container: make sure there's absolutely no gap between items */
+.mobile-optimized .mobile-faq .faq-list {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 0 !important;
+}
+
+
+
+/* Ensure each accordion item has no external spacing */
+.mobile-optimized .mobile-faq .faq-list > [data-radix-accordion-item] {
+  margin: 0 !important;
+}
+
+/* But keep question text readable */
+.mobile-optimized .mobile-faq .font-medium,
+.mobile-optimized .mobile-faq .text-muted-foreground,
+.mobile-optimized .mobile-faq .text-muted-foreground.text-primary {
+  color: #111827 !important;
+}
+
+/* Question text */
+.mobile-optimized .mobile-faq .font-medium {
+  color: #111827 !important; /* black */
+}
+
+/* Plus/minus icon color and positioning */
+.mobile-optimized .mobile-faq .text-muted-foreground,
+.mobile-optimized .mobile-faq .text-muted-foreground.text-primary {
+  color: #111827 !important; /* black */
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: block !important;
+  width: 48px !important;
+  height: 48px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  min-width: 48px !important;
+  max-width: 48px !important;
+}
+
+/* Answers: no bubbles, just text */
+.mobile-optimized .mobile-faq .rounded-2xl,
+.mobile-optimized .mobile-faq [data-radix-accordion-content],
+.mobile-optimized .mobile-faq .AccordionContent {
+  background: #5d18eb !important;
+  color: white !important; /* white text for better contrast */
+  border: none !important;
+  padding: 8px 16px !important;
+  margin: 8px 0 16px 0 !important;
+  border-radius: 12px !important;
+}
+
+/* Mobile FAQ Timestamp */
+.mobile-optimized .faq-section .text-sm.text-muted-foreground {
+  color: #9ca3af !important;
+  text-align: center !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Hide phone image on mobile */
+.mobile-optimized .faq-section .absolute {
+  display: none !important;
+}
+
+/* ===== END MOBILE FAQ SECTION ===== */
+
+/* CTA: show correct typewriter per device */
+.mobile-optimized .cta-typewriter--smooth { display: none !important; }
+.mobile-optimized .cta-typewriter--classic { display: block !important; }
+
+/* Desktop defaults */
+.cta-typewriter--smooth { display: block; }
+.cta-typewriter--classic { display: none; }
+
+/* Mobile sizing for classic typewriter */
+.mobile-optimized .cta-typewriter--classic .text-base,
+.mobile-optimized .cta-typewriter--classic .sm\:text-xl,
+.mobile-optimized .cta-typewriter--classic .md\:text-3xl,
+.mobile-optimized .cta-typewriter--classic .lg\:text-5xl,
+.mobile-optimized .cta-typewriter--classic {
+  font-size: 2.25rem !important; /* 36px */
+  line-height: 1.2 !important;
+}
+
+/* Fix cursor height for mobile classic typewriter */
+.mobile-optimized .cta-typewriter--classic .h-4,
+.mobile-optimized .cta-typewriter--classic .md\:h-6,
+.mobile-optimized .cta-typewriter--classic .lg\:h-10,
+.mobile-optimized .cta-typewriter--classic span[class*="h-"] {
+  height: 2.25rem !important; /* Match font size */
+}
+
+/* Allow wrapping for classic variant */
+.mobile-optimized .cta-typewriter--classic {
+  white-space: normal !important;
+  word-break: normal !important;
+  overflow-wrap: anywhere !important;
+}
+
+/* Smooth typing animation on mobile */
+.mobile-optimized .cta-typewriter--classic span {
+  transition: opacity 0.1s ease-in-out !important;
+  animation-timing-function: ease-in-out !important;
+}
+
+/* Ensure smooth character appearance */
+.mobile-optimized .cta-typewriter--classic .inline-block {
+  transition: all 0.15s ease-in-out !important;
+}
+
+/* Smooth cursor blinking */
+.mobile-optimized .cta-typewriter--classic .bg-blue-500,
+.mobile-optimized .cta-typewriter--classic [class*="bg-"][class*="500"] {
+  transition: opacity 0.2s ease-in-out !important;
+}
+
+/* GPU-acceleration hints for smoother typing on mobile */
+.mobile-optimized .cta-typewriter--classic span {
+  will-change: opacity, transform;
+  transform: translateZ(0);
+}
+
+/* Remove word wrapper transition to avoid layout jitter */
+.mobile-optimized .cta-typewriter--classic .inline-block {
+  transition: none !important;
+}
+
+/* Hide CTA cursor on mobile only */
+.mobile-optimized .cta-typewriter .cta-cursor {
+  display: none !important;
+}
+
+/* Move mobile email form higher in CTA */
+.mobile-optimized .mobile-email-form {
+  margin-top: -2rem !important;
+}
+
+/* Mobile-only CTA RateMe logo adjustments */
+.mobile-optimized .cta-rateme-logo {
+  justify-content: center !important;
+  padding-top: 1.5rem !important;
+  padding-bottom: 3rem !important; /* lower it more */
+}
+.mobile-optimized .cta-rateme-logo__img {
+  height: 6rem !important; /* larger logo on mobile */
+  width: auto !important;
+  margin: 0 auto !important;
+  display: block !important;
+}
+/* Ensure much larger RateMe logo on mobile */
+.mobile-optimized .cta-rateme-logo img.cta-rateme-logo__img {
+  width: 12rem !important;  /* increase width explicitly */
+  max-width: 80vw !important; /* keep within viewport */
+  height: auto !important;    /* preserve aspect ratio */
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Reduce top space of CTA section on mobile */
+.mobile-optimized .call-to-action-section {
+  padding-top: 0.5rem !important;
+}
+
+/* Reduce bottom space of FAQ section on mobile to pull CTA up */
+.mobile-optimized .faq-section {
+  padding-bottom: 0.5rem !important;
+}
+
+/* Slightly increase bottom space of FAQ on mobile */
+.mobile-optimized .faq-section {
+  padding-bottom: 1rem !important;
+}
+
+/* Increase bottom space further between FAQ and CTA on mobile */
+.mobile-optimized .faq-section {
+  padding-bottom: 2rem !important;
+}
+
+/* Keep FAQ subtitle icon with 'RateMe' on the same line (mobile only) */
+.mobile-optimized .faq-section .rateme-inline {
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.125rem !important; /* closer spacing */
+}
+/* Slightly bigger icon on mobile */
+.mobile-optimized .faq-section .rateme-inline img {
+  width: 1.25rem !important;
+  height: 1.25rem !important;
+}
+
+/* Keep hero subtitle RateMe icon inline on mobile too */
+.mobile-optimized .rateme-inline {
+  white-space: nowrap !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 0.125rem !important;
+}
+
+/* Slightly lower the heart/icon in hero subtitle on mobile */
+.mobile-optimized .hero-subtitle .rateme-inline img {
+  position: relative !important;
+  top: 2px !important; /* nudge down */
+}
+
+/* Slightly lower the RateMe icon in FAQ subtitle on mobile */
+.mobile-optimized .faq-section .rateme-inline img {
+  position: relative !important;
+  top: 2px !important;
+}
+
+/* Tighter spacing between icon and 'RateMe' on mobile */
+.mobile-optimized .hero-subtitle .rateme-inline {
+  gap: 0rem !important;
+}
+.mobile-optimized .faq-section .rateme-inline {
+  gap: 0rem !important;
+}
+
+/* Mobile: tighten gap between FAQ box and +/- icon */
+.mobile-optimized .mobile-faq .flex.w-full.items-center.justify-start.gap-x-4 {
+  -moz-column-gap: 0.25rem !important;
+       column-gap: 0.25rem !important;
+  gap: 0.25rem !important;
+}
+
+/* Mobile: bring +/- icons closer to question boxes */
+.mobile-optimized .mobile-faq .flex.w-full.items-center.justify-start.gap-x-4 {
+  gap: 0.125rem !important;
+}
+/* Restore larger +/- icon container and icon size on mobile FAQ */
+.mobile-optimized .mobile-faq .flex.w-full.items-center.justify-start.gap-x-4 > span.text-muted-foreground,
+.mobile-optimized .mobile-faq .flex.w-full.items-center.justify-start.gap-x-4 > span.text-primary {
+  min-width: 48px !important;
+  width: 48px !important;
+  display: inline-flex !important;
+  justify-content: flex-start !important; /* keep icon near the box */
+  align-items: center !important;
+}
+/* Make icons larger again */
+.mobile-optimized .mobile-faq .h-5.w-5 {
+  width: 24px !important;
+  height: 24px !important;
+}
+.mobile-optimized .mobile-faq .relative.flex.items-center.space-x-2.rounded-xl.p-2.transition-colors {
+  padding-right: 6px !important; /* reduce space on the box's right */
 }
 .placeholder\:text-muted-foreground::-moz-placeholder {
   color: hsl(var(--muted-foreground));
@@ -2812,6 +3512,10 @@ video {
 .mobile-optimized .group\/stepper-nav[data-orientation="horizontal"] .group-data-\[orientation\=horizontal\]\/stepper-nav\:flex-row {
   flex-direction: row;
 }
+.mobile-optimized .mx-auto.mt-2.max-w-md form .flex.items-center.gap-2 .group\/stepper-nav[data-orientation="horizontal"] .group-data-\[orientation\=horizontal\]\/stepper-nav\:flex-1 {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
 .dark\:border-neutral-700:is(.dark *) {
   --tw-border-opacity: 1;
   border-color: rgb(64 64 64 / var(--tw-border-opacity, 1));
@@ -2930,6 +3634,14 @@ video {
     margin-left: 4rem;
   }
 
+  .md\:block {
+    display: block;
+  }
+
+  .md\:hidden {
+    display: none;
+  }
+
   .md\:h-6 {
     height: 1.5rem;
   }
@@ -2973,6 +3685,21 @@ video {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
+.mobile-optimized .mx-auto.mt-2.max-w-md form .md\:gap-2.flex.items-center {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  flex-wrap: nowrap !important;
+}
+.mobile-optimized .mx-auto.mt-2.max-w-md form .md\:gap-2.flex.items-center > * {
+  flex-shrink: 0 !important;
+}
+
+.mobile-optimized .mx-auto.mt-2.max-w-md form .md\:gap-2.flex.items-center .flex-1 {
+  flex: 1 !important;
+  min-width: 0 !important;
+}
 }
 @media (min-width: 1024px) {
 
