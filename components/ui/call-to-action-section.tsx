@@ -145,7 +145,7 @@ export function CallToActionSection() {
               <form onSubmit={handleSubmit} className="w-full flex items-center gap-2">
                 <input
                   type="email"
-                  placeholder="Enter your email..."
+                  placeholder="Email for early access..."
                   className="mobile-email-input flex-1"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -164,12 +164,21 @@ export function CallToActionSection() {
         </div>
       </section>
 
-      {/* RateMe Logo */}
-      <div className="pt-2 pb-8 flex justify-center bg-gradient-to-b from-gray-50 to-white cta-rateme-logo">
+      {/* Mobile-only: RateMe Logo at bottom */}
+      <div className="pt-2 pb-8 flex justify-center bg-gradient-to-b from-gray-50 to-white cta-rateme-logo md:hidden">
         <img 
           src="/assets/images/Logo RateMe.png" 
           alt="RateMe Logo" 
           className="h-10 w-auto object-contain cta-rateme-logo__img"
+        />
+      </div>
+
+      {/* Desktop-only: Full-width footer image */}
+      <div className="hidden md:block w-full bg-gradient-to-b from-gray-50 to-white">
+        <img
+          src="/assets/images/Ontwerp%20zonder%20titel%20(8).png"
+          alt="RateMe footer banner"
+          className="w-full h-auto object-cover"
         />
       </div>
     </>

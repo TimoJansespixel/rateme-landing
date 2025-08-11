@@ -222,7 +222,7 @@ const Hero7 = ({
               <form onSubmit={handleSubmit} className="w-full flex items-center gap-2">
                 <input
                   type="email"
-                  placeholder="Enter your email..."
+                  placeholder="Email for early access..."
                   className="mobile-email-input flex-1"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -250,7 +250,7 @@ const Hero7 = ({
               <div className="mt-2 animate-fade-in-up">
                 <div className="mobile-preview-wrap w-full max-w-md mx-auto">
                   <img
-                    src="/assets/images/IMG_7463-landscape.png"
+                    src="/assets/images/Profile-portrait.png"
                     alt="App preview"
                     className="mobile-preview-image"
                   />
@@ -328,64 +328,66 @@ const Hero7 = ({
       </section>
 
       {/* Three images positioned directly against content */}
-      <section className="pb-16">
-        <div className="container text-center">
-          <div className="flex justify-center gap-8">
-            {/* Images Container */}
-            <div className={`flex gap-8 transition-all duration-1000 ease-out ${
-              showImages ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-            }`}>
-              {/* Image 1 - positioned lower, moves outward and down on scroll, disappears completely */}
-              <div 
-                className="relative transform hover:scale-105"
-                style={{
-                  transform: `translate3d(-${outsideTranslateX}px, ${32 + verticalScroll}px, 0)`,
-                  transition: 'transform 0.1s linear',
-                  willChange: 'transform',
-                }}
-              >
-                <img 
-                  src="/assets/images/IMG_7463-landscape.png" 
-                  alt="RateMe App" 
-                  className="w-80 h-auto object-contain"
-                />
-              </div>
+      {!isMobileView && (
+        <section className="pb-16">
+          <div className="container text-center">
+            <div className="flex justify-center gap-8">
+              {/* Images Container */}
+              <div className={`flex gap-8 transition-all duration-1000 ease-out ${
+                showImages ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+              }`}>
+                {/* Image 1 - left */}
+                <div 
+                  className="relative transform hover:scale-105"
+                  style={{
+                    transform: `translate3d(-${outsideTranslateX}px, ${32 + verticalScroll}px, 0)`,
+                    transition: 'transform 0.1s linear',
+                    willChange: 'transform',
+                  }}
+                >
+                  <img 
+                    src="/assets/images/Home-portrait.png" 
+                    alt="RateMe Home" 
+                    className="w-80 h-auto object-contain"
+                  />
+                </div>
 
-              {/* Image 2 - middle position, scales up and moves down on scroll */}
-              <div 
-                className="relative transform hover:scale-105"
-                style={{
-                  transform: `translate3d(0, ${verticalScroll}px, 0) scale(${middleScale})`,
-                  transition: 'transform 0.1s linear',
-                  willChange: 'transform',
-                }}
-              >
-                <img 
-                  src="/assets/images/IMG_7463-landscape.png" 
-                  alt="RateMe App" 
-                  className="w-80 h-auto object-contain"
-                />
-              </div>
+                {/* Image 2 - middle */}
+                <div 
+                  className="relative transform hover:scale-105"
+                  style={{
+                    transform: `translate3d(0, ${verticalScroll}px, 0) scale(${middleScale})`,
+                    transition: 'transform 0.1s linear',
+                    willChange: 'transform',
+                  }}
+                >
+                  <img 
+                    src="/assets/images/Profile2-portrait.png" 
+                    alt="RateMe Profile" 
+                    className="w-80 h-auto object-contain"
+                  />
+                </div>
 
-              {/* Image 3 - positioned lower, moves outward and down on scroll, disappears completely */}
-              <div 
-                className="relative transform hover:scale-105"
-                style={{
-                  transform: `translate3d(${outsideTranslateX}px, ${32 + verticalScroll}px, 0)`,
-                  transition: 'transform 0.1s linear',
-                  willChange: 'transform',
-                }}
-              >
-                <img 
-                  src="/assets/images/IMG_7463-landscape.png" 
-                  alt="RateMe App" 
-                  className="w-80 h-auto object-contain"
-                />
+                {/* Image 3 - right */}
+                <div 
+                  className="relative transform hover:scale-105"
+                  style={{
+                    transform: `translate3d(${outsideTranslateX}px, ${32 + verticalScroll}px, 0)`,
+                    transition: 'transform 0.1s linear',
+                    willChange: 'transform',
+                  }}
+                >
+                  <img 
+                    src="/assets/images/Explore-portrait.png" 
+                    alt="RateMe Explore" 
+                    className="w-80 h-auto object-contain"
+                  />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Fading Text Boxes - desktop shows original four; mobile shows single combined */}
       <section className="pb-16">

@@ -118,11 +118,11 @@ export function FaqSection() {
               />
             </div>
 
-            {/* Phone Picture - Positioned much closer */}
-            <div className="absolute left-[55%] top-0 w-2/5 flex justify-start pl-4">
+            {/* Phone Picture - Desktop only, positioned */}
+            <div className="absolute left-[55%] top-0 w-2/5 justify-start pl-4 hidden md:flex">
               <div className="animate-fly-in-right">
                 <img 
-                  src="/assets/images/IMG_7463-landscape.png" 
+                  src="/assets/images/Home-portrait.png" 
                   alt="RateMe App on Phone" 
                   className="w-80 h-auto object-contain drop-shadow-2xl"
                 />

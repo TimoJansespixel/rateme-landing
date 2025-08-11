@@ -82,6 +82,15 @@ export function HowItWorksSection() {
             Get early access
           </button>
         </div>
+
+        {/* Mobile-only full-width screenshot under CTA */}
+        <div className="how-works-screenshot">
+          <img
+            src="/assets/images/Screens.RateMe.Mobile%20.png"
+            alt="RateMe app screenshots"
+            className="how-works-screenshot__img"
+          />
+        </div>
       </div>
     </section>
   );

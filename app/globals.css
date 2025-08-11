@@ -1725,12 +1725,14 @@
 .mobile-optimized .hero-subtitle .rateme-inline img {
   position: relative !important;
   top: 2px !important; /* nudge down */
+  margin-right: -1px !important; /* nudge left toward text */
 }
 
 /* Slightly lower the RateMe icon in FAQ subtitle on mobile */
 .mobile-optimized .faq-section .rateme-inline img {
   position: relative !important;
   top: 2px !important;
+  margin-right: -1px !important; /* nudge left toward text */
 }
 
 /* Tighter spacing between icon and 'RateMe' on mobile */
@@ -1767,4 +1769,22 @@
 }
 .mobile-optimized .mobile-faq .relative.flex.items-center.space-x-2.rounded-xl.p-2.transition-colors {
   padding-right: 6px !important; /* reduce space on the box's right */
+}
+
+/* How It Works: mobile-only full-width screenshot under CTA */
+.how-works-screenshot {
+  display: none;
+}
+.mobile-optimized .how-works-screenshot {
+  display: block !important;
+  margin-top: 1rem !important;
+  margin-bottom: 1rem !important;
+}
+.mobile-optimized .how-works-screenshot__img {
+  width: 100vw !important;
+  max-width: 100vw !important;
+  height: auto !important;
+  display: block !important;
+  margin-left: 50% !important;
+  transform: translateX(-50%) !important; /* truly edge-to-edge */
 }
