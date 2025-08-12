@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import Image from "next/image";
 import { User, Star, TrendingUp, Check } from 'lucide-react';
 
 const steps = [
@@ -85,10 +86,13 @@ export function HowItWorksSection() {
 
         {/* Mobile-only full-width screenshot under CTA */}
         <div className="how-works-screenshot">
-          <img
+          <Image
             src="/assets/images/Screens.RateMe.Mobile%20.png"
             alt="RateMe app screenshots"
+            width={1200}
+            height={2000}
             className="how-works-screenshot__img"
+            priority
           />
         </div>
       </div>

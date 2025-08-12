@@ -2,6 +2,7 @@
 
 import { Star, Mail, ArrowRight, User, Share2, TrendingUp, BarChart3, Heart } from "lucide-react";
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
@@ -173,14 +174,13 @@ const Hero7 = ({
           <div className="mx-auto flex max-w-screen-lg flex-col gap-6">
             {/* App Icon/Logo */}
             <div className="mx-auto mb-6 hero-top-icon-wrap" style={isMobileView ? { marginTop: '12px', marginBottom: '10px' } : undefined}>
-              <img 
+              <Image 
                 src="/assets/images/AppIconRateMe.png" 
                 alt="RateMe Logo" 
+                width={80}
+                height={80}
                 className="h-20 w-auto mx-auto rounded-3xl transition-transform duration-200 hover:scale-110 hero-top-icon"
-                onError={(e) => {
-                  console.error('Failed to load image:', e);
-                  e.currentTarget.style.display = 'none';
-                }}
+                priority
               />
             </div>
             
@@ -249,10 +249,12 @@ const Hero7 = ({
             {isMobileView && (
               <div className="mt-2 animate-fade-in-up">
                 <div className="mobile-preview-wrap w-full max-w-md mx-auto">
-                  <img
+                  <Image
                     src="/assets/images/Profile-portrait.png"
                     alt="App preview"
-                    className="mobile-preview-image"
+                    width={640}
+                    height={1280}
+                    className="mobile-preview-image h-auto w-full"
                   />
                 </div>
               </div>
@@ -345,9 +347,11 @@ const Hero7 = ({
                     willChange: 'transform',
                   }}
                 >
-                  <img 
+                  <Image 
                     src="/assets/images/Home-portrait.png" 
                     alt="RateMe Home" 
+                    width={320}
+                    height={640}
                     className="w-80 h-auto object-contain"
                   />
                 </div>
@@ -361,9 +365,11 @@ const Hero7 = ({
                     willChange: 'transform',
                   }}
                 >
-                  <img 
+                  <Image 
                     src="/assets/images/Profile2-portrait.png" 
                     alt="RateMe Profile" 
+                    width={320}
+                    height={640}
                     className="w-80 h-auto object-contain"
                   />
                 </div>
@@ -377,9 +383,11 @@ const Hero7 = ({
                     willChange: 'transform',
                   }}
                 >
-                  <img 
+                  <Image 
                     src="/assets/images/Explore-portrait.png" 
                     alt="RateMe Explore" 
+                    width={320}
+                    height={640}
                     className="w-80 h-auto object-contain"
                   />
                 </div>

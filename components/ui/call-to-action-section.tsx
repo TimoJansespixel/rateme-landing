@@ -2,6 +2,7 @@
 import { TypewriterEffectSmooth, TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { Button } from "@/components/ui/button";
 import { Mail, ArrowRight } from "lucide-react";
+import Image from "next/image";
 import { useState } from "react";
 
 export function CallToActionSection() {
@@ -166,19 +167,24 @@ export function CallToActionSection() {
 
       {/* Mobile-only: RateMe Logo at bottom */}
       <div className="pt-2 pb-8 flex justify-center bg-gradient-to-b from-gray-50 to-white cta-rateme-logo md:hidden">
-        <img 
+        <Image 
           src="/assets/images/Logo RateMe.png" 
           alt="RateMe Logo" 
+          width={160}
+          height={40}
           className="h-10 w-auto object-contain cta-rateme-logo__img"
         />
       </div>
 
       {/* Desktop-only: Full-width footer image */}
       <div className="hidden md:block w-full bg-gradient-to-b from-gray-50 to-white">
-        <img
+        <Image
           src="/assets/images/Ontwerp%20zonder%20titel%20(8).png"
           alt="RateMe footer banner"
+          width={2400}
+          height={800}
           className="w-full h-auto object-cover"
+          priority
         />
       </div>
     </>

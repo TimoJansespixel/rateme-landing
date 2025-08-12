@@ -1,6 +1,7 @@
 "use client"
 
 import React from "react";
+import Image from "next/image";
 import { FaqAccordion } from "@/components/ui/faq-chat-accordion";
 
 const faqData = [
@@ -121,10 +122,13 @@ export function FaqSection() {
             {/* Phone Picture - Desktop only, positioned */}
             <div className="absolute left-[55%] top-0 w-2/5 justify-start pl-4 hidden md:flex">
               <div className="animate-fly-in-right">
-                <img 
+                <Image 
                   src="/assets/images/Home-portrait.png" 
                   alt="RateMe App on Phone" 
+                  width={320}
+                  height={640}
                   className="w-80 h-auto object-contain drop-shadow-2xl"
+                  priority
                 />
               </div>
             </div>
