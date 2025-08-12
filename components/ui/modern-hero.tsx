@@ -1,6 +1,6 @@
 "use client"
 
-import { Star, Mail, ArrowRight, User, Share2, TrendingUp, BarChart3, Heart } from "lucide-react";
+import { Star, Mail, ArrowRight, User, Share2, TrendingUp, BarChart3, Heart, Check } from "lucide-react";
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -233,7 +233,7 @@ const Hero7 = ({
                   className="mobile-email-button"
                   disabled={isLoading || !email}
                 >
-                  {isLoading ? '...' : 'Join'}
+                  {isLoading ? '...' : isSubmitted ? <Check className="h-5 w-5 text-green-500" /> : 'Join'}
                 </button>
               </form>
             </div>

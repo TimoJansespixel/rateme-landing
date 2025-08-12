@@ -1,7 +1,7 @@
 "use client";
 import { TypewriterEffectSmooth, TypewriterEffect } from "@/components/ui/typewriter-effect";
 import { Button } from "@/components/ui/button";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Check } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 
@@ -157,7 +157,7 @@ export function CallToActionSection() {
                   className="mobile-email-button"
                   disabled={isLoading || !email}
                 >
-                  {isLoading ? '...' : 'Join'}
+                  {isLoading ? '...' : isSubmitted ? <Check className="h-5 w-5 text-green-500" /> : 'Join'}
                 </button>
               </form>
             </div>
