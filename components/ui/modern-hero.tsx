@@ -401,7 +401,7 @@ const Hero7 = ({
       <section className="pb-16">
         <div className="container text-center">
           {isMobileView ? (
-            <div className="flex justify-center" style={{ marginTop: '40px' }}>
+            <div className="flex justify-center" style={{ marginTop: '16px' }}>
               <div
                 className="hero-info-combined w-[92%] sm:w-full max-w-md md:max-w-2xl lg:max-w-3xl mx-auto px-6 md:px-8"
                 style={{
